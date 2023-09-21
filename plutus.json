@@ -1,0 +1,92 @@
+{
+  "preamble": {
+    "title": "aiken-lang/vesting",
+    "description": "Aiken contracts for project 'aiken-lang/vesting'",
+    "version": "0.0.0",
+    "plutusVersion": "v2",
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "vesting.vesting",
+      "datum": {
+        "title": "datum",
+        "schema": {
+          "$ref": "#/definitions/vesting~1Datum"
+        }
+      },
+      "redeemer": {
+        "title": "_redeemer",
+        "schema": {
+          "$ref": "#/definitions/RedeemerWrapper$Void"
+        }
+      },
+      "compiledCode": "5901a1010000323232323232323232322253330073370e9000180300089929998041991199119198008008019129998088008a501323253330103371e00400a29444cc010010004c050008dd718090009bac33006300800248040004cc010c0180092000375c66008600c00690000a4c2c64a66601066e1d2000001132323232533300f3011002149858dd7180780098078011bae300d0013006003163006002132232533300a3232533300c3370e900100089919299980719800998051806003240006eb8cc028c030025200014a226600266014601800c90001bae3300a300c0094800888cc88c8cc00400400c894ccc05800452809919299980a99b8f00200514a226600800800260320046eb8c05c004dd61980598068012402000260140042940c028004cc018c0200092002149858c94ccc028cdc3a4000002264646464a66602260260042930b1bae30110013011002375c601e002601000a2c60100086016600a0026600200290001111199980399b8700100300b233330050053370000890011806800801001118029baa001230033754002ae6955ceaab9e5573eae855d101",
+      "hash": "8157226f01ef4afe2872afd8739467a2f49e8c047427447a84b82335"
+    },
+    {
+      "title": "vesting.redeemer",
+      "redeemer": {
+        "title": "datum",
+        "schema": {
+          "$ref": "#/definitions/vesting~1Datum"
+        }
+      },
+      "compiledCode": "5901a1010000323232323232323232322253330073370e9000180300089929998041991199119198008008019129998088008a501323253330103371e00400a29444cc010010004c050008dd718090009bac33006300800248040004cc010c0180092000375c66008600c00690000a4c2c64a66601066e1d2000001132323232533300f3011002149858dd7180780098078011bae300d0013006003163006002132232533300a3232533300c3370e900100089919299980719800998051806003240006eb8cc028c030025200014a226600266014601800c90001bae3300a300c0094800888cc88c8cc00400400c894ccc05800452809919299980a99b8f00200514a226600800800260320046eb8c05c004dd61980598068012402000260140042940c028004cc018c0200092002149858c94ccc028cdc3a4000002264646464a66602260260042930b1bae30110013011002375c601e002601000a2c60100086016600a0026600200290001111199980399b8700100300b233330050053370000890011806800801001118029baa001230033754002ae6955ceaab9e5573eae855d101",
+      "hash": "8157226f01ef4afe2872afd8739467a2f49e8c047427447a84b82335"
+    }
+  ],
+  "definitions": {
+    "ByteArray": {
+      "dataType": "bytes"
+    },
+    "RedeemerWrapper$Void": {
+      "title": "Wrapped Redeemer",
+      "description": "A redeemer wrapped in an extra constructor to make multi-validator detection possible on-chain.",
+      "anyOf": [
+        {
+          "dataType": "constructor",
+          "index": 1,
+          "fields": [
+            {
+              "$ref": "#/definitions/Void"
+            }
+          ]
+        }
+      ]
+    },
+    "Void": {
+      "title": "Unit",
+      "description": "The nullary constructor.",
+      "anyOf": [
+        {
+          "dataType": "constructor",
+          "index": 0,
+          "fields": []
+        }
+      ]
+    },
+    "vesting/Datum": {
+      "title": "Datum",
+      "anyOf": [
+        {
+          "title": "Datum",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "owner",
+              "description": "Owner's credentials Thong tin xac thuc chu so huu",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "beneficiary",
+              "description": "Beneficiary's credentials Thong tin xac thuc nguoi thu huong",
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
